@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello, How Fun buddies!</string>
+    <string name="app_name">Screen Breaker</string>
+    <string name="fruit_mask">Fruits</string>
+    
+    <string name="coin_mask">Coins</string>
+    <string name="bug_mask">Bugs</string>
+    <string name="heart_mask">Hearts</string>
+    
+    <string name="clear">Clear</string>
+    <string name="help">Welcome to Screen Breaker, Click to play! (Find more in menu...)</string>
+    <string name="exit">Exit</string>
+    <string name="exit_prompt">Screen Breaker has been stopped.</string>
+    <string name="resume_prompt">Screen Breaker started.</string>
+</resources>

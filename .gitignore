@@ -1,0 +1,12 @@
+jni/
+obj/
+
+default.properties
+.classpath
+.project
+
+proguard.cfg
+
+.settings
+bin
+gen
