@@ -5,8 +5,6 @@
  */
 package com.howfun.android.screenbreaker;
 
-import com.amobee.onlineHapi.AmobeeAdView;
-import com.amobee.onlineHapi.OnlineHAPI;
 import com.howfun.android.screenbreaker.mask.BrokenGlassMask;
 import com.howfun.android.screenbreaker.mask.Mask;
 
@@ -42,9 +40,9 @@ public class MainPage extends Activity {
    private Sound mSound = null;
    ScreenManger mScreenManager = null;
 
+   private AudioPlay mPlayer;
+
    
-   public static OnlineHAPI onlineHAPI;
-   public static AmobeeAdView amobeeAdView;
    private static final int REFRESH_INTERVAL = 120;
 
    @Override
@@ -64,7 +62,8 @@ public class MainPage extends Activity {
   
    private void init() {
       mContext = this;
-      mSound = new Sound(mContext);
+//      mSound = new Sound(mContext);
+      mPlayer = new AudioPlay(mContext);
       Utils.log(TAG, "init(), mSound = " + mSound);
       mScreenManager = new ScreenManger();
 
@@ -92,18 +91,15 @@ public class MainPage extends Activity {
       }
    }
 
+   
    private void addMask(int x, int y) {
       Mask mask = null;
       switch (mMaskId) {
       case ID_BROKEN_GLASS:
          Utils.log(TAG, "Add broken_glass mask");
-         if (mSound == null) {
-            Utils.log(TAG, "addMask(), mSound = " + mSound);
-            mSound = new Sound(MainPage.this);
-         }
          
          Utils.log(TAG, "addMask()2, mSound = " + mSound);
-         mask = new BrokenGlassMask(mContext, x, y, mSound);
+         mask = new BrokenGlassMask(mContext, x, y, mPlayer);
          
          mScreenManager.addMask(mask);
          
