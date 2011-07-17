@@ -6,5 +6,10 @@
 	<com.howfun.android.screenbreaker.ScreenView
 		android:id="@+id/screen_view" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" />
-   
+		
+   <com.sosceo.android.ads.AdView
+      android:id="@+id/ad" android:layout_width="fill_parent"
+      android:textColor="#FFFFFF" 
+      android:background="@android:color/transparent"
+      android:layout_height="50px" />
 </RelativeLayout>

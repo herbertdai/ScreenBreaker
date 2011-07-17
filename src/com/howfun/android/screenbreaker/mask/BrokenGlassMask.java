@@ -7,18 +7,15 @@ package com.howfun.android.screenbreaker.mask;
 
 import com.howfun.android.screenbreaker.AudioPlay;
 import com.howfun.android.screenbreaker.R;
-import com.howfun.android.screenbreaker.Sound;
 
 import android.content.Context;
 public class BrokenGlassMask extends StaticMask {
 
    public static final String TAG = "BrokenGlassMask";
 
-   public static final int RECT_WIDTH = 230;
-   public static final int RECT_HEIGHT = 230;
+   public static final int RECT_WIDTH = 280;
+   public static final int RECT_HEIGHT = 280;
 
-   private Sound mSound = null; 
-   
    private int[] mGlasses = { R.drawable.broken_glass0,
          R.drawable.broken_glass1};
    private int[] mSoundRes = { R.raw.glass0, R.raw.glass1};
@@ -28,9 +25,7 @@ public class BrokenGlassMask extends StaticMask {
    public BrokenGlassMask(Context context, int x, int y, AudioPlay player) {
       super(context);
       
-//      mSound = sound; 
       mPlayer = player;
-      
       init(x, y);
    }
 
@@ -41,7 +36,8 @@ public class BrokenGlassMask extends StaticMask {
       mRectWidth = RECT_WIDTH;
       mRectHeight = RECT_HEIGHT;
       setRect();
-      int whichIcon = (int) (Math.random() * mGlasses.length);
+//      int whichIcon = (int) (Math.random() * mGlasses.length);
+      int whichIcon = 0;
       int resId = mGlasses[whichIcon];
       setImageResource(resId);
       setClickable(false);
@@ -51,9 +47,10 @@ public class BrokenGlassMask extends StaticMask {
 
    @Override
    protected void playSound(int resId) {
+      
       int whichSound = (int) (Math.random() * mSoundRes.length);
-//      mSound.play(mSoundRes[whichSound]); 
       mPlayer.play(mSoundRes[whichSound]); 
+      
    }
 
 }

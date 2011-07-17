@@ -25,4 +25,17 @@ public final class Utils {
             R.string.app_name).setMessage(stringId).setPositiveButton(
             android.R.string.ok, null).show();
    }
+   
+   public static void showAbout(Context context) {
+      new AlertDialog.Builder(context)
+         .setIcon(R.drawable.icon)
+         .setTitle(R.string.app_name)
+         .setMessage(
+               context.getResources().getString(R.string.version)
+               + "\n" +
+               context.getResources().getString(R.string.howfun)
+               )
+         .show().setCanceledOnTouchOutside(true);
+   }
+
 }

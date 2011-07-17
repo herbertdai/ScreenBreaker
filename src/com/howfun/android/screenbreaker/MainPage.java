@@ -7,12 +7,11 @@ package com.howfun.android.screenbreaker;
 
 import com.howfun.android.screenbreaker.mask.BrokenGlassMask;
 import com.howfun.android.screenbreaker.mask.Mask;
+import com.sosceo.android.ads.AdView;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,7 +36,6 @@ public class MainPage extends Activity {
    ScreenView mScreenView = null;
 
    private Context mContext = null;
-   private Sound mSound = null;
    ScreenManger mScreenManager = null;
 
    private AudioPlay mPlayer;
@@ -64,11 +62,18 @@ public class MainPage extends Activity {
       mContext = this;
 //      mSound = new Sound(mContext);
       mPlayer = new AudioPlay(mContext);
-      Utils.log(TAG, "init(), mSound = " + mSound);
       mScreenManager = new ScreenManger();
+      
+      sosceo();
 
    }
 
+   private void sosceo() {
+      AdView mAdView = (AdView) findViewById(R.id.ad);
+      mAdView.showAgreement();
+ 
+   }
+   
    private void findViews() {
       mScreenView = (ScreenView) findViewById(R.id.screen_view);
    }
@@ -98,7 +103,6 @@ public class MainPage extends Activity {
       case ID_BROKEN_GLASS:
          Utils.log(TAG, "Add broken_glass mask");
          
-         Utils.log(TAG, "addMask()2, mSound = " + mSound);
          mask = new BrokenGlassMask(mContext, x, y, mPlayer);
          
          mScreenManager.addMask(mask);
@@ -155,6 +159,9 @@ public class MainPage extends Activity {
 //         mScreenManager.clear();
 //         mMaskId = R.id.heart_mask;
 //         break;
+      case R.id.about:
+         Utils.showAbout(MainPage.this);
+         break;
       case R.id.clear:
          mScreenManager.removeMovableMasks();
          mScreenManager.removeStaticMasks();
