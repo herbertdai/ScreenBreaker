@@ -2,7 +2,7 @@
 <resources>
    <string name="howfun">HOWFUN Studio (2011)</string>
 	<string name="app_name">Screen Breaker</string>
-    <string name="version">1.0.0</string>
+    <string name="version">1.0.2</string>
 	<string name="fruit_mask">Fruits</string>
 
 	<string name="coin_mask">Coins</string>

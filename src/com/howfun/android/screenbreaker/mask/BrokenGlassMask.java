@@ -13,8 +13,8 @@ public class BrokenGlassMask extends StaticMask {
 
    public static final String TAG = "BrokenGlassMask";
 
-   public static final int RECT_WIDTH = 280;
-   public static final int RECT_HEIGHT = 280;
+   public static final int RECT_WIDTH = 200;
+   public static final int RECT_HEIGHT = 200;
 
    private int[] mGlasses = { R.drawable.broken_glass0,
          R.drawable.broken_glass1};
